@@ -1,0 +1,332 @@
+/* ============================= */
+/*          ROOT VARIABLES       */
+/* ============================= */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --sidebar-bg: #f0f0f0;
+  --card-bg: #ffffff;
+}
+
+body.dark {
+  --bg: #20212c;
+  --text: #ffffff;
+  --sidebar-bg: #2b2c37;
+  --card-bg: #2b2c37;
+}
+
+/* ============================= */
+/*         GLOBAL STYLES         */
+/* ============================= */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ============================= */
+/*          SIDEBAR              */
+/* ============================= */
+.sidebar {
+  width: 250px;
+  background: var(--sidebar-bg);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease;
+}
+
+/* Logo & Branding */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logo {
+  color: #888;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Board List */
+.boards {
+  list-style: none;
+  padding: 0;
+}
+
+.boards li {
+  margin-bottom: 0.75rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.boards li.active {
+  background-color: #635fc7;
+  color: white;
+}
+
+.boards li.create {
+  color: #635fc7;
+}
+
+.boards li:hover {
+  background-color: rgba(99, 95, 199, 0.1);
+}
+
+/* ============================= */
+/*        THEME TOGGLE           */
+/* ============================= */
+.theme-toggle.top-right {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 15;
+  background-color: var(--sidebar-bg);
+  padding: 0.5rem 0.8rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background: white;
+  border-radius: 50%;
+  bottom: 2px;
+  left: 2px;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #635fc7;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* ============================= */
+/*       TOP RIGHT BUTTONS       */
+/* ============================= */
+.top-right-buttons {
+  position: fixed;
+  top: 4.2rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.add-task.top-add-task {
+  background: #635fc7;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.kebab-btn.top-kebab {
+  background: var(--sidebar-bg);
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* ============================= */
+/*         HEADER AREA           */
+/* ============================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.platform-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+}
+
+/* ============================= */
+/*         MAIN COLUMNS          */
+/* ============================= */
+.main {
+  flex: 1;
+  padding: 2rem;
+  overflow: auto;
+  transition: 0.3s ease;
+}
+
+.columns {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 280px;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  min-height: 300px;
+}
+
+.column h3 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.todo-dot {
+  background-color: #49c4e5;
+}
+
+.doing-dot {
+  background-color: #8471f2;
+}
+
+.done-dot {
+  background-color: #67e2ae;
+}
+
+.task {
+  background: #2c2d3a;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+}
+
+.new-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #888;
+  color: #888;
+  font-weight: bold;
+  height: 300px;
+}
+
+/* ============================= */
+/*        SIDEBAR TOGGLE         */
+/* ============================= */
+.hide-btn.outside {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 10;
+  background-color: #635fc7;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+}
+
+.app.hide-sidebar .sidebar {
+  display: none;
+}
+
+.app.hide-sidebar .main {
+  width: 100%;
+  padding-left: 2rem;
+}
+
+.app.hide-sidebar .hide-btn.outside {
+  left: 1.5rem;
+}

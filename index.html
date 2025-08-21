@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban Task App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle top-right">
+    <span>🌙</span>
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle" checked />
+      <span class="slider round"></span>
+    </label>
+    <span>🌞</span>
+  </div>
+
+  <!-- Add Task and Kebab Menu -->
+  <div class="top-right-buttons">
+    <button class="add-task top-add-task">+ Add New Task</button>
+    <button class="kebab-btn top-kebab">⋮</button>
+  </div>
+
+  <!-- Main App Container -->
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-wrap">
+        <img src="images/icon.svg" alt="Logo" class="logo-icon" />
+        <h2 class="logo">kanban</h2>
+      </div>
+
+      <div class="all-boards">All Boards</div>
+      <ul class="boards">
+        <li class="active">Platform Launch</li>
+        <li>Marketing Plan</li>
+        <li>Roadmap</li>
+        <li class="create">+ Create New Board</li>
+      </ul>
+    </aside>
+
+    <!-- Sidebar Toggle Button -->
+    <button id="toggleSidebar" class="hide-btn outside">Hide Sidebar</button>
+
+    <!-- Main Content -->
+    <main class="main">
+
+      <!-- Header Section -->
+      <header>
+        <div class="header-container">
+          <div class="header-left">
+            <h2 class="platform-title">Platform Launch</h2>
+          </div>
+        </div>
+      </header>
+
+      <!-- Kanban Columns -->
+      <div class="columns">
+        <!-- TODO Column -->
+        <div class="column">
+          <h3><span class="dot todo-dot"></span>TODO (2)</h3>
+          <div class="task">
+            Build UI for onboarding flow
+            <ul class="subtasks">
+              <li>Design UI (✓)</li>
+              <li>Create Components (✗)</li>
+              <li>Review (✗)</li>
+            </ul>
+          </div>
+          <div class="task">
+            Build UI for search
+            <ul class="subtasks">
+              <li>Search bar design (✓)</li>
+              <li>Filter logic (✗)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DOING Column -->
+        <div class="column">
+          <h3><span class="dot doing-dot"></span>DOING (2)</h3>
+          <div class="task">
+            Add endpoints
+            <ul class="subtasks">
+              <li>Auth route (✓)</li>
+              <li>Task CRUD (✗)</li>
+              <li>Board logic (✗)</li>
+            </ul>
+          </div>
+          <div class="task">
+            Search pages UI
+            <ul class="subtasks">
+              <li>Page design (✓)</li>
+              <li>Linking (✗)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DONE Column -->
+        <div class="column">
+          <h3><span class="dot done-dot"></span>DONE (1)</h3>
+          <div class="task">
+            Create wireframe
+            <ul class="subtasks">
+              <li>Sketch (✓)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Add New Column -->
+        <div class="column new-column">+ New Column</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
